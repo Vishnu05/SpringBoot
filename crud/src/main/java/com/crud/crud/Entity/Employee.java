@@ -13,9 +13,33 @@ public class Employee {
     @Column(name="first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
+    @Column(unique = true, name = "email")
     private String email;
+
+    // no arg, hibernate constructor
+    Employee() {
+
+    }
+
+    public Employee(int id, String firstName, String lastName, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
