@@ -4,6 +4,7 @@ package com.crud.crud.RestController;
 import com.crud.crud.DAO.EmployeeDAO;
 import com.crud.crud.Entity.Employee;
 //import com.crud.crud.Service.EmployeeService;
+import com.crud.crud.Service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +18,12 @@ import java.util.List;
 public class EmployeeRest {
 
 
-    private EmployeeDAO employeeDAO;
+    private ServiceDAO employeeDAO;
 
 
 
     @Autowired
-    private EmployeeRest(EmployeeDAO employeeDAO) {
+    private EmployeeRest(ServiceDAO employeeDAO) {
         this.employeeDAO = employeeDAO;
     }
 
