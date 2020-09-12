@@ -12,12 +12,16 @@ import java.util.List;
 
 
 @Repository
+@Transactional
 public class EmployeeImplements implements EmployeeDAO {
 
 
     private EntityManager entityManager;
 
-    // autowired is not necessary one in later spring
+//     creating a session, for whole class, which one will be better each method or the whole class
+//    private  Session createSession = entityManager.unwrap(Session.class);
+
+    // autowired is not necessary one, in later spring
     @Autowired
     public EmployeeImplements(EntityManager theEntityManager) {
         entityManager = theEntityManager;
@@ -43,7 +47,6 @@ public class EmployeeImplements implements EmployeeDAO {
     @Override
     public Employee findById(int id) {
 
-        // getting the current session
         Session createSession = entityManager.unwrap(Session.class);
 
         // get the employee by id
@@ -56,7 +59,7 @@ public class EmployeeImplements implements EmployeeDAO {
         return (Employee) query;
     }
 
-    @Override
+   @Override
     public void createEmployee(Employee employee) {
 
         // getting current hibernate session
