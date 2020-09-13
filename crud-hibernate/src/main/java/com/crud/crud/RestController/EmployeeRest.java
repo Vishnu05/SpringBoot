@@ -80,11 +80,12 @@ public class EmployeeRest {
 
         Employee tempEmployee = serviceDAO.findById(employeeId);
 
-        // throw exception if null
-
+        // throw exception if the user doesn't exits in database
         if (tempEmployee == null) {
-            throw new RuntimeException("Employee id not found - " + employeeId);
+//            throw new RuntimeException("Employee id not found - " + employeeId);
+            return "Employee not found in our database : " + employeeId;
         }
+
 
         serviceDAO.deleteEmployee(employeeId);
 
