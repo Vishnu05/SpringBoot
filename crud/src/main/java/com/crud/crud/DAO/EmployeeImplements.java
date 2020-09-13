@@ -50,16 +50,17 @@ public class EmployeeImplements implements EmployeeDAO {
         Session createSession = entityManager.unwrap(Session.class);
 
         // get the employee by id
-//        Employee employee = createSession.get(Employee.class, id);
+        Employee employee = createSession.get(Employee.class, id);
 
-        // using sql query
-        Query query = createSession.createSQLQuery("select * from employee where id = id");
+        // using sql query, it throws error need to check
+//        Query query = createSession.createSQLQuery("select * from employee where id =:id");
+//        System.out.println("Sql query will return this " + query);
+//        query.setParameter("id", id);
 
-        System.out.println("Sql query will return this " + query);
-        return (Employee) query;
+        return employee;
     }
 
-   @Override
+    @Override
     public void createEmployee(Employee employee) {
 
         // getting current hibernate session
@@ -71,18 +72,29 @@ public class EmployeeImplements implements EmployeeDAO {
     }
 
     @Override
-    public void deleteEmployee(int id) {
+    public void deleteEmployeeById(int id) {
 
-        // getting current hibernate session
+      /*  // getting current hibernate session
         Session createSession = entityManager.unwrap(Session.class);
 
         // native hibernate query to delete a particular record
-        //query query = createSession.createQuery("delete from Employee where id=:employeeId ");
-        Query query = createSession.createSQLQuery("delete from employee where id = id ");
+        Query query = createSession.createQuery("delete from Employee where id=:employeeId ");
+       // Query query = createSession.createSQLQuery("delete from employee where id =: id ");
 
-       // query.setParameter("employeeId", id);
+         query.setParameter("employeeId", id);
 
         query.executeUpdate();
+*/
+        // get the current hibernate session
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        // delete object with primary key
+        Query theQuery =
+                currentSession.createQuery(
+                        "delete from Employee where id=:employeeId");
+        theQuery.setParameter("employeeId", id);
+
+        theQuery.executeUpdate();
 
 
     }

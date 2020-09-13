@@ -20,6 +20,7 @@ public class EmployeeService implements ServiceDAO {
     private EmployeeDAO employeeDAO;
 
     // constructor injection
+    /** got error while setting to private, BeanCreationError, after changing it worked*/
     @Autowired
     public EmployeeService(EmployeeDAO employeeDAO) {
         this.employeeDAO = employeeDAO;
@@ -47,6 +48,6 @@ public class EmployeeService implements ServiceDAO {
     @Override
     @Transactional
     public void deleteEmployee(int id) {
-        employeeDAO.deleteEmployee(id);
+        employeeDAO.deleteEmployeeById(id);
     }
 }
