@@ -91,16 +91,4 @@ public class EmployeeRest {
 
         return "Deleted employee id - " + employeeId;
     }
-
-    @GetMapping("/employee/email")
-    public Employee searchByEmail(@PathVariable String email) throws Exception {
-        Employee employee = serviceDAO.searchByEmail(email);
-        System.out.println("email searching " + employee);
-
-        if (employee == null) {
-            throw new Exception("email id doesn't exists in our db ");
-        } else {
-            return employee;
-        }
-    }
 }

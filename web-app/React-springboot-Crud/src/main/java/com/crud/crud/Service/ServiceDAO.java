@@ -13,6 +13,4 @@ public interface ServiceDAO {
     void createEmployee(Employee employee);
 
     void deleteEmployee(int id);
-
-    Employee searchByEmail(String email);
 }

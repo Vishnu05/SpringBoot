@@ -50,9 +50,4 @@ public class EmployeeService implements ServiceDAO {
     public void deleteEmployee(int id) {
         employeeDAO.deleteEmployeeById(id);
     }
-
-    @Override
-    public Employee searchByEmail(String email) {
-        return employeeDAO.searchByEmail(email);
-    }
 }

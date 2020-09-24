@@ -10,5 +10,4 @@ public interface EmployeeDAO {
     Employee findById(int id);
     void createEmployee(Employee employee);
     void deleteEmployeeById(int id);
-    Employee searchByEmail(String email);
 }

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: localuser
+    password: ${pwd}
+    url: jdbc:mysql://localhost:3306/generic
+
+#  base url spring boot above 2 > versions
+server:
+  servlet:
+    context-path: /api
+
+## logging
+#
+#logging:
+#  level:
+#    org.spingframework: WARN
+#    org.hibernate: WARN
+

@@ -98,17 +98,4 @@ public class EmployeeImplements implements EmployeeDAO {
 
 
     }
-
-    @Override
-    public Employee searchByEmail(String email) {
-
-        // getting the session
-        Session session = entityManager.unwrap(Session.class);
-//        Query query = session.createQuery("from Employee where email = email");
-//
-//        System.out.println("Query results" + query);
-        Employee employee = session.get(Employee.class, email);
-
-        return employee;
-    }
 }
