@@ -1,0 +1,6 @@
+
+spring:
+  datasource:
+    url: jdbc://localhost:5432/test
+    username:
+    password:
